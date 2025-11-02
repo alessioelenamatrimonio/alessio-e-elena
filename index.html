@@ -1,12 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <title>Alessio & Elena</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#7b6c57" />
+  <title>Alessio &amp; Elena — Ci sposiamo!</title>
+
+  <!-- Font eleganti e moderni -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Cloudinary Upload Widget (per la sezione "Carica le foto") -->
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Alessio & Elna</h1>
-  <p>Coming soon — 2026</p>
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#hero" aria-label="Torna all'inizio">
+        <span class="brand-line1">Alessio</span>
+        <span class="amp">&amp;</span>
+        <span class="brand-line2">Elena</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Apri menù" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <a href="#info">Il Giorno</a>
+        <a href="#logistica">Logistica</a>
+        <a href="#mappa">Mappa</a>
+        <a href="#foto">Foto</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero section">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Ci sposiamo!</p>
+        <h1>Alessio &amp; Elena</h1>
+        <!-- Imposta la data nel file script.js (WEDDING_DATE) -->
+        <p class="date" id="dateLabel">Data da annunciare</p>
+
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div><span id="dd">–</span><small>giorni</small></div>
+          <div><span id="hh">–</span><small>ore</small></div>
+          <div><span id="mm">–</span><small>min</small></div>
+          <div><span id="ss">–</span><small>sec</small></div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#info">Dettagli</a>
+          <a class="btn btn-outline" href="#foto">Carica le foto</a>
+        </div>
+      </div>
+
+      <figure class="hero-photo">
+        <!-- Sostituisci con la foto verticale della coppia -->
+        <img src="assets/alessio-elena.jpg" alt="Ritratto di Alessio ed Elena" loading="eager">
+        <figcaption class="visually-hidden">Alessio &amp; Elena</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- IL GIORNO / PROGRAMMA -->
+  <section id="info" class="section">
+    <div class="container">
+      <h2>Il Giorno</h2>
+      <div class="cards three">
+        <article class="card">
+          <h3>Cerimonia</h3>
+          <p><strong>Ore 16:00</strong> — Arrivo e ingresso in chiesa.</p>
+          <p>Si consiglia di arrivare con anticipo.</p>
+        </article>
+        <article class="card">
+          <h3>Ricevimento</h3>
+          <p><strong>Ore 18:30</strong> — Aperitivo e cena.<br/>Location comunicata in loco o sul gruppo/QR.</p>
+        </article>
+        <article class="card">
+          <h3>Dress code</h3>
+          <p>Elegante ma comodo. Tacco consigliato solo per interni (esterni su prato/ghiaia).</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGISTICA / COORDINATE / LINK -->
+  <section id="logistica" class="section alt">
+    <div class="container">
+      <h2>Logistica</h2>
+
+      <div class="grid-two">
+        <div>
+          <h3>La Chiesa</h3>
+          <p>
+            La chiesa si trova in campagna, in una zona isolata. Strade strette in alcuni tratti:
+            <strong>partite con anticipo</strong> e valutate il parcheggio lungo la strada principale.
+          </p>
+
+          <!-- Aggiorna nome se vuoi specificarlo -->
+          <p class="location-name">Chiesa (campagna Viterbo/Terni)</p>
+
+          <ul class="details">
+            <li><strong>Coordinate:</strong> <code id="coords">42°20'13.9"N 12°24'11.6"E</code></li>
+            <li><strong>Link:</strong>
+              <a id="gmapsLink" href="https://maps.google.com/?q=42.337194,12.403222" target="_blank" rel="noopener">Apri in Google Maps</a>
+              ·
+              <a id="appleLink" href="maps://?ll=42.337194,12.403222" target="_blank" rel="noopener">Apri in Apple&nbsp;Maps</a>
+            </li>
+            <li><button class="btn btn-soft" id="copyCoords" type="button">Copia coordinate</button></li>
+          </ul>
+
+          <div class="tips">
+            <h4>Consigli utili</h4>
+            <ul>
+              <li>Campo cellulare non sempre presente.</li>
+              <li>Portate una bottiglietta d'acqua, in estate fa caldo.</li>
+              <li>In caso di pioggia: ombrello e scarpe adatte a sterrato.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3>Percorsi suggeriti</h3>
+          <p>Usate direttamente il link a Maps qui sopra. Per chi preferisce i navigatori:</p>
+          <ul>
+            <li><strong>Waze:</strong> cercate “42.337194, 12.403222”.</li>
+            <li><strong>TomTom/Garmin:</strong> inserite le coordinate in formato decimale.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPPA EMBED -->
+  <section id="mappa" class="section">
+    <div class="container">
+      <h2>Mappa</h2>
+      <!-- Embed semplice basato su coordinate decimali -->
+      <div class="map-frame">
+        <iframe
+          title="Mappa — Chiesa"
+          src="https://www.google.com/maps?q=42.337194,12.403222&z=14&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="map-note">Se la mappa non si carica, usate il link a Google Maps nella sezione Logistica.</p>
+    </div>
+  </section>
+
+  <!-- FOTO / UPLOAD -->
+  <section id="foto" class="section alt">
+    <div class="container">
+      <h2>Carica le tue foto</h2>
+      <p class="muted">
+        Condividi i momenti più belli del matrimonio di Alessio &amp; Elena.
+        Le immagini vengono caricate in uno spazio privato. Formati accettati: JPG/PNG/HEIC/WEBP. Max 15 MB per file.
+      </p>
+
+      <div class="upload-box">
+        <button class="btn btn-primary" id="uploadBtn" type="button">Carica foto</button>
+        <div id="uploadStatus" class="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <!-- Galleria (opzionale: inserisci manualmente alcune foto o thumbnail da Cloudinary) -->
+      <div class="gallery" id="gallery">
+        <!-- Esempio (sostituisci src con URL Cloudinary trasformati, es: .../image/upload/w_900,f_auto,q_auto/... ) -->
+        <!-- <img src="https://res.cloudinary.com/TUO_CLOUD/image/upload/w_600,f_auto,q_auto/v123/wedding-photos/xxx.jpg" alt="Ricordo"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Domande frequenti</h2>
+      <div class="faq">
+        <details>
+          <summary>Possiamo venire con i bambini?</summary>
+          <p>Certo! Indicatelo nel messaggio agli sposi per l’organizzazione dei posti.</p>
+        </details>
+        <details>
+          <summary>È previsto un regalo?</summary>
+          <p>La vostra presenza è il regalo più bello. Se volete, ci sarà un piccolo <em>wishing well</em> al ricevimento.</p>
+        </details>
+        <details>
+          <summary>Foto e video</summary>
+          <p>Scattate pure! Condividetele tramite il pulsante “Carica foto”.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Con amore, <strong>Alessio &amp; Elena</strong></p>
+      <p class="tiny">© <span id="year"></span> — Tutti i diritti riservati</p>
+      <a class="to-top" href="#hero" aria-label="Torna su">↑ Torna su</a>
+    </div>
+  </footer>
 </body>
 </html>
 
